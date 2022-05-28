@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<launch>
+
+	<include file="$(find final_assignment)/launch/launch_nodes.launch" />
+	<include file="$(find final_assignment)/launch/simulation_gmapping.launch" />
+	<include file="$(find final_assignment)/launch/move_base.launch" />
+    <include file="$(find rosbridge_server)/launch/rosbridge_websocket.launch" />
+    <node pkg="tf2_web_republisher" type="tf2_web_republisher" name="tf2_web_republisher" />
+ 
+
+</launch>

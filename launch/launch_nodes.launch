@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<launch>
+
+<param name="mode" type="int" value="0" />
+
+<param name="des_pos_x" type="double" value="1" />
+<param name="des_pos_y" type="double" value="1" />
+
+
+<node pkg="final_assignment" type="User_Interface.py" name="UI" required="true" launch-prefix="xterm -fg white -bg black -e" />
+<node pkg="final_assignment" type="mode_1.py" name="Autonomous" required="true" launch-prefix="xterm -fg white -bg black -e" />
+<node pkg="final_assignment" type="mode_2.py" name="Free_Drive" required="true" launch-prefix="xterm -fg white -bg black -e" /> 
+<node pkg="final_assignment" type="mode_3.py" name="Avoid_Assistance" required="true" launch-prefix="xterm -fa 'Monospace' -fs 10 -fg white -bg black -e" /> 
+
+</launch>
