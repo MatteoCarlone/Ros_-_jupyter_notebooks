@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Welcome to Mobile_Discovery_Robot_ROS’s documentation! &mdash; Mobile_Discovery_Robot_ROS 1.0 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/graphviz.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="#" class="icon icon-home"> Mobile_Discovery_Robot_ROS
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">Welcome to Mobile_Discovery_Robot_ROS’s documentation!</a></li>
+<li><a class="reference internal" href="#indices-and-tables">Indices and tables</a></li>
+<li><a class="reference internal" href="#module-scripts.User_Interface">User Interface Module <code class="xref py py-mod docutils literal notranslate"><span class="pre">User_Interface</span></code></a></li>
+<li><a class="reference internal" href="#module-scripts.mode_1">Mode 1 Module <code class="xref py py-mod docutils literal notranslate"><span class="pre">mode1</span></code></a></li>
+<li><a class="reference internal" href="#module-scripts.mode_2">Mode 2 Module <code class="xref py py-mod docutils literal notranslate"><span class="pre">mode2</span></code></a></li>
+<li><a class="reference internal" href="#module-scripts.mode_3">Mode 3 Module <code class="xref py py-mod docutils literal notranslate"><span class="pre">mode3</span></code></a></li>
+</ul>
+</div>
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="#">Mobile_Discovery_Robot_ROS</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="#" class="icon icon-home"></a> &raquo;</li>
+      <li>Welcome to Mobile_Discovery_Robot_ROS’s documentation!</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/index.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="welcome-to-mobile-discovery-robot-ros-s-documentation">
+<h1>Welcome to Mobile_Discovery_Robot_ROS’s documentation!<a class="headerlink" href="#welcome-to-mobile-discovery-robot-ros-s-documentation" title="Permalink to this headline"></a></h1>
+<div class="toctree-wrapper compound">
+</div>
+</div>
+<div class="section" id="indices-and-tables">
+<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline"></a></h1>
+<ul class="simple">
+<li><p><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></p></li>
+<li><p><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Module Index</span></a></p></li>
+<li><p><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></p></li>
+</ul>
+</div>
+<div class="section" id="module-scripts.User_Interface">
+<span id="user-interface-module-user-interface"></span><h1>User Interface Module <a class="reference internal" href="#module-User_Interface" title="User_Interface: Python Module for the User Interface (Unix)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">User_Interface</span></code></a><a class="headerlink" href="#module-scripts.User_Interface" title="Permalink to this headline"></a></h1>
+<span class="target" id="module-User_Interface"></span><p>This is the main node and the first one spawned.
+This script provides the user with a small graphic explaining how to select the movement modes of the robot.
+It also manages the user input by going to modify, if the command is correct, the ros parameters that allow
+the activation of the nodes set for each mode.</p>
+<p><code class="docutils literal notranslate"><span class="pre">rospy.set_param('mode',</span> <span class="pre">mode_number)</span></code></p>
+<p>This mechanism is managed with a switch-case that makes use of standard Python dictionaries.
+The possible commands are the following:</p>
+<ol class="arabic simple">
+<li><ul class="simple">
+<li><p><a class="reference internal" href="#module-mode1" title="mode1: Python Module for the first Modality &quot;Goal Reaching&quot; (Unix)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">mode1</span></code></a> , Reach autonomousely a user’s desired position</p></li>
+</ul>
+</li>
+<li><ul class="simple">
+<li><p><a class="reference internal" href="#module-mode2" title="mode2: Python Module for the Second Modality &quot;Free Drive&quot; (Unix)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">mode2</span></code></a> , Free drive the robot with the keyboard</p></li>
+</ul>
+</li>
+<li><ul class="simple">
+<li><p><a class="reference internal" href="#module-mode3" title="mode3: Python Module for the Third Modality &quot;Driver Assistant&quot; (Unix)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">mode3</span></code></a> , Drive the robot with the keyboard with an active collision avoidance</p></li>
+</ul>
+</li>
+<li><ul class="simple">
+<li><p>STOP the simulation</p></li>
+</ul>
+</li>
+</ol>
+<p>When the first modality is called the user will be able to set the desired goal position
+and to cancel it during the reaching by pressing 0 .</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="scripts.User_Interface.UI">
+<span class="sig-prename descclassname"><span class="pre">scripts.User_Interface.</span></span><span class="sig-name descname"><span class="pre">UI</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/scripts/User_Interface.html#UI"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#scripts.User_Interface.UI" title="Permalink to this definition"></a></dt>
+<dd><p>This Function receives inputs from the user and manage his request
+by choosing the right modality thanks to a switch-case structure that makes use of python dictionaries.
+This logic is implemented in the module script.
+The user will be also able to cancel the goal request of the modality one by pressing the number 0 on
+his keyboard, this is simply managed changing a global bolean variable “goal_cancel”</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>No Arguments</p></li>
+<li><p>No Returns</p></li>
+</ul>
+</div></blockquote>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="scripts.User_Interface.main">
+<span class="sig-prename descclassname"><span class="pre">scripts.User_Interface.</span></span><span class="sig-name descname"><span class="pre">main</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/scripts/User_Interface.html#main"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#scripts.User_Interface.main" title="Permalink to this definition"></a></dt>
+<dd><p>The main function prints some istruction for the user and start an infinite loop
+that keep listening to the user requests.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-scripts.mode_1">
+<span id="mode-1-module-mode1"></span><h1>Mode 1 Module <a class="reference internal" href="#module-mode1" title="mode1: Python Module for the first Modality &quot;Goal Reaching&quot; (Unix)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">mode1</span></code></a><a class="headerlink" href="#module-scripts.mode_1" title="Permalink to this headline"></a></h1>
+<span class="target" id="module-mode1"></span><p>The Desired goal position is set by the user in the UI by modifying two ROS_Parameters.</p>
+<ul>
+<li><p>position_x:</p>
+<blockquote>
+<div><p><code class="docutils literal notranslate"><span class="pre">rospy.set_param('des_pos_x',</span> <span class="pre">desired_x_position)</span></code></p>
+</div></blockquote>
+</li>
+<li><p>position_y:</p>
+<blockquote>
+<div><p><code class="docutils literal notranslate"><span class="pre">rospy.set_param('des_pos_y',</span> <span class="pre">desired_y_position)</span></code></p>
+</div></blockquote>
+</li>
+</ul>
+<p>The mode1 node sends the goal-position to the ActionServer /move_base,
+the client receives the feedbacks which is print on screen in the current xterm window.
+Moreover the action sends the the status which is: managed using python dictionaries and print,
+the main status are [1] the goal achievement and [2] the goal cancelation.
+Then the move_base node evaluate the shortest path via the Dijkstra’s path algorithm.
+The robot starts moving toward the goal beacause the move_base node publishes the right velocity
+and orientation on the cmd_vel topic.</p>
+<p>If the user decide to change modality from the UI, the goal is correctly cancelled by sending
+the proper cancelation message to the ActionServer and this Node turns to an Idle state.</p>
+<p>ROS Parameters:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>“mode”: (type: int) parameter for setting the desired modality</p></li>
+<li><p>“des_pos_x”: (type: float) parameter for setting the x desired position</p></li>
+<li><p>“des_pos_y”: (type: float) parameter for setting the y desired position</p></li>
+</ul>
+</div></blockquote>
+<dl class="py function">
+<dt class="sig sig-object py" id="scripts.mode_1.action_client">
+<span class="sig-prename descclassname"><span class="pre">scripts.mode_1.</span></span><span class="sig-name descname"><span class="pre">action_client</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/scripts/mode_1.html#action_client"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#scripts.mode_1.action_client" title="Permalink to this definition"></a></dt>
+<dd><p>This function open the connection to the Action-Server, waits until the connection
+is established and sets some goal’s parameter for the action-message.</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>No Arguments</p></li>
+<li><p>No Returns</p></li>
+</ul>
+</div></blockquote>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="scripts.mode_1.active_cb">
+<span class="sig-prename descclassname"><span class="pre">scripts.mode_1.</span></span><span class="sig-name descname"><span class="pre">active_cb</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/scripts/mode_1.html#active_cb"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#scripts.mode_1.active_cb" title="Permalink to this definition"></a></dt>
+<dd><p>CallBack function that gets called when a new goal is starting to be processed .</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>No Arguments</p></li>
+<li><p>No Returns</p></li>
+</ul>
+</div></blockquote>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="scripts.mode_1.done_cb">
+<span class="sig-prename descclassname"><span class="pre">scripts.mode_1.</span></span><span class="sig-name descname"><span class="pre">done_cb</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">status</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">result</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/scripts/mode_1.html#done_cb"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#scripts.mode_1.done_cb" title="Permalink to this definition"></a></dt>
+<dd><p>This is the CallBack function of the action, used to notify the client about the current status of every goal in the system
+Thua function, as CallBack , takes action after a goal is processed.</p>
+<blockquote>
+<div><dl class="simple">
+<dt>Arguments:</dt><dd><ul class="simple">
+<li><p>status: (type: int) integer from “actionlib_msgs/GoalStatus” that represent the current state of the goal</p></li>
+<li><p>result: (type: int) result of the goal position just ended</p></li>
+</ul>
+</dd>
+</dl>
+<p>No Returns</p>
+</div></blockquote>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="scripts.mode_1.feedback_cb">
+<span class="sig-prename descclassname"><span class="pre">scripts.mode_1.</span></span><span class="sig-name descname"><span class="pre">feedback_cb</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">feedback</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/scripts/mode_1.html#feedback_cb"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#scripts.mode_1.feedback_cb" title="Permalink to this definition"></a></dt>
+<dd><p>CallBack function that gets called whenever a feedback from the robot is received.</p>
+<blockquote>
+<div><dl class="simple">
+<dt>Argument:</dt><dd><ul class="simple">
+<li><p>feedback (type: move_base_msgs/MoveBaseActionFeedback.msg)  feedback from the robot while the action-server is running</p></li>
+</ul>
+</dd>
+</dl>
+<p>No Returns</p>
+</div></blockquote>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="scripts.mode_1.main">
+<span class="sig-prename descclassname"><span class="pre">scripts.mode_1.</span></span><span class="sig-name descname"><span class="pre">main</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/scripts/mode_1.html#main"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#scripts.mode_1.main" title="Permalink to this definition"></a></dt>
+<dd><p>The Main Function in which the parameters are set and updated when needed, of course everything work when
+the “mode” parameter is set to “1” . Moreover the cancelation of the goals is managed in order to avoid
+conflicts.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="scripts.mode_1.set_goal">
+<span class="sig-prename descclassname"><span class="pre">scripts.mode_1.</span></span><span class="sig-name descname"><span class="pre">set_goal</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/scripts/mode_1.html#set_goal"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#scripts.mode_1.set_goal" title="Permalink to this definition"></a></dt>
+<dd><p>This Fucntion creates a goal a sends it to the action server.
+It creates a goal by setting the x and y position.</p>
+<blockquote>
+<div><dl class="simple">
+<dt>Arguments:</dt><dd><ul class="simple">
+<li><p>x : (type: float) x deisred position to be set</p></li>
+<li><p>y : (type: float) y desired position to be set</p></li>
+</ul>
+</dd>
+</dl>
+<p>No Returns</p>
+</div></blockquote>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="scripts.mode_1.update_variables">
+<span class="sig-prename descclassname"><span class="pre">scripts.mode_1.</span></span><span class="sig-name descname"><span class="pre">update_variables</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/scripts/mode_1.html#update_variables"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#scripts.mode_1.update_variables" title="Permalink to this definition"></a></dt>
+<dd><p>This Function updates the ROS parameters: the current modality “mode”
+and the desired position “des_pos_x” , “des_pos_y”</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>No Arguments</p></li>
+<li><p>No Returns</p></li>
+</ul>
+</div></blockquote>
+</dd></dl>
+
+</div>
+<div class="section" id="module-scripts.mode_2">
+<span id="mode-2-module-mode2"></span><h1>Mode 2 Module <a class="reference internal" href="#module-mode2" title="mode2: Python Module for the Second Modality &quot;Free Drive&quot; (Unix)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">mode2</span></code></a><a class="headerlink" href="#module-scripts.mode_2" title="Permalink to this headline"></a></h1>
+<span class="target" id="module-mode2"></span><p>The second modality is just the teleop_twist_keyboard node adapted on this package
+by checking the status of the ROS parameter “mode” which represents the current modality</p>
+<p>The user can control the robot movement by pressing the following keys:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 24%" />
+<col style="width: 24%" />
+<col style="width: 27%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td></td>
+<td><p><strong>Turn Left</strong></p></td>
+<td><p><strong>Stop Turn</strong></p></td>
+<td><p><strong>Turn Right</strong></p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Go Forward</strong></p></td>
+<td><p>u</p></td>
+<td><p>i</p></td>
+<td><p>o</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Stop</strong></p></td>
+<td><p>J</p></td>
+<td><p>k</p></td>
+<td><p>l</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Go Backward</strong></p></td>
+<td><p>m</p></td>
+<td><p>,</p></td>
+<td><p>.</p></td>
+</tr>
+</tbody>
+</table>
+<p>the user can change the robot velocity of 10% by pressing the following keys</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 21%" />
+<col style="width: 32%" />
+<col style="width: 22%" />
+<col style="width: 25%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td></td>
+<td><p><strong>Linear and Angular</strong></p></td>
+<td><p><strong>Linear Only</strong></p></td>
+<td><p><strong>Angular Only</strong></p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Increase</strong></p></td>
+<td><p>q</p></td>
+<td><p>w</p></td>
+<td><p>e</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Reset</strong></p></td>
+<td><p>a</p></td>
+<td><p>s</p></td>
+<td><p>d</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Decrease</strong></p></td>
+<td><p>z</p></td>
+<td><p>x</p></td>
+<td><p>c</p></td>
+</tr>
+</tbody>
+</table>
+<p>if the user decide to change modality from the UI, the Free Drive node turns to an idle state.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="scripts.mode_2.PublishThread">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">scripts.mode_2.</span></span><span class="sig-name descname"><span class="pre">PublishThread</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rate</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/scripts/mode_2.html#PublishThread"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#scripts.mode_2.PublishThread" title="Permalink to this definition"></a></dt>
+<dd><dl class="py method">
+<dt class="sig sig-object py" id="scripts.mode_2.PublishThread.run">
+<span class="sig-name descname"><span class="pre">run</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/scripts/mode_2.html#PublishThread.run"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#scripts.mode_2.PublishThread.run" title="Permalink to this definition"></a></dt>
+<dd><p>Method representing the thread’s activity.</p>
+<p>You may override this method in a subclass. The standard run() method
+invokes the callable object passed to the object’s constructor as the
+target argument, if any, with sequential and keyword arguments taken
+from the args and kwargs arguments, respectively.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="scripts.mode_2.main">
+<span class="sig-prename descclassname"><span class="pre">scripts.mode_2.</span></span><span class="sig-name descname"><span class="pre">main</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/scripts/mode_2.html#main"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#scripts.mode_2.main" title="Permalink to this definition"></a></dt>
+<dd><p>In the Main Function I made only two changes from the ” my_teleop_twist_keyboard ” one:</p>
+<ul class="simple">
+<li><p>the script runs if and only if the ROS Parameter “mode” is set to 2 according to the whole paradigm of the code</p></li>
+<li><p>setting the key_timeout to 0.1 such that the user has to keep the command pressed to make the robot move. That’s because the select() in the getKey function waits 0.1 second for a new inputs every loop.</p></li>
+</ul>
+</dd></dl>
+
+</div>
+<div class="section" id="module-scripts.mode_3">
+<span id="mode-3-module-mode3"></span><h1>Mode 3 Module <a class="reference internal" href="#module-mode3" title="mode3: Python Module for the Third Modality &quot;Driver Assistant&quot; (Unix)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">mode3</span></code></a><a class="headerlink" href="#module-scripts.mode_3" title="Permalink to this headline"></a></h1>
+<span class="target" id="module-mode3"></span><p>The Driver Assistant Node starts from the Free Drive Node but is able to disable the commands that,
+if pressed, would cause the robot to collide into the walls of the map.</p>
+<p>The robot is equipped with a laser scanner. The scanner publishes a message of type sensor_msgs/LaserScan.msg on the /scan
+which is read in a CallBack function by the Node Driver Assistant.
+Here the algorithm checks weather there’s an obstacle or not.
+The user will be able to select only the direction that wouldn’t bring the robot to the walls,
+this part has been implemented by popping out from a python dictionary the defective commands.</p>
+<p>The User can control the robot movement by pressing the following keys:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 24%" />
+<col style="width: 24%" />
+<col style="width: 27%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td></td>
+<td><p><strong>Turn Left</strong></p></td>
+<td></td>
+<td><p><strong>Turn Right</strong></p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Go Forward</strong></p></td>
+<td><p>[]</p></td>
+<td><p>i</p></td>
+<td><p>[]</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>J</p></td>
+<td><p>[]</p></td>
+<td><p>l</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Go Backward</strong></p></td>
+<td><p>[]</p></td>
+<td><p>k</p></td>
+<td><p>[]</p></td>
+</tr>
+</tbody>
+</table>
+<p>The change of velocity is still implemented in this modality and uses the same set of keys.</p>
+<p>If the user decide to change modality from the UI, The Driver Assistant Node turns to an Idle state.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="scripts.mode_3.PublishThread">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">scripts.mode_3.</span></span><span class="sig-name descname"><span class="pre">PublishThread</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rate</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/scripts/mode_3.html#PublishThread"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#scripts.mode_3.PublishThread" title="Permalink to this definition"></a></dt>
+<dd><dl class="py method">
+<dt class="sig sig-object py" id="scripts.mode_3.PublishThread.run">
+<span class="sig-name descname"><span class="pre">run</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/scripts/mode_3.html#PublishThread.run"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#scripts.mode_3.PublishThread.run" title="Permalink to this definition"></a></dt>
+<dd><p>Method representing the thread’s activity.</p>
+<p>You may override this method in a subclass. The standard run() method
+invokes the callable object passed to the object’s constructor as the
+target argument, if any, with sequential and keyword arguments taken
+from the args and kwargs arguments, respectively.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="scripts.mode_3.clbk_laser">
+<span class="sig-prename descclassname"><span class="pre">scripts.mode_3.</span></span><span class="sig-name descname"><span class="pre">clbk_laser</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">msg</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/scripts/mode_3.html#clbk_laser"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#scripts.mode_3.clbk_laser" title="Permalink to this definition"></a></dt>
+<dd><p>CallBack Function to get laser scan information about the obstacles
+that the robot will detect in front of it.
+Thanks to the Subscription to the topic <code class="docutils literal notranslate"><span class="pre">/scan</span></code> this function can get an array of 721 elements
+which represent the distances of walls that the robot can see in an angle of 180 degrees.
+By dividing this array the robot will reecognize weather there’s an obstacle on his left, right or front.</p>
+<blockquote>
+<div><dl class="simple">
+<dt>Argument:</dt><dd><ul class="simple">
+<li><p>msg: (type: sensor_msgs/LaserScan.msg) array of 721 elements from the Laser Scanner</p></li>
+</ul>
+</dd>
+</dl>
+<p>No returns</p>
+</div></blockquote>
+</dd></dl>
+
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Matteo Carlone.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

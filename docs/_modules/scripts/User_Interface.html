@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>scripts.User_Interface &mdash; Mobile_Discovery_Robot_ROS 1.0 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/graphviz.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../index.html" class="icon icon-home"> Mobile_Discovery_Robot_ROS
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <!-- Local TOC -->
+              <div class="local-toc"></div>
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Mobile_Discovery_Robot_ROS</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../index.html">Module code</a> &raquo;</li>
+      <li>scripts.User_Interface</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for scripts.User_Interface</h1><div class="highlight"><pre>
+<span></span><span class="ch">#!/usr/bin/python3</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">.. module:: User_Interface</span>
+<span class="sd">   :platform: Unix</span>
+<span class="sd">   :synopsis: Python Module for the User Interface</span>
+
+<span class="sd">.. moduleauthor:: Matteo Carlone matteo.carlone99@gmail.com</span>
+
+<span class="sd">This is the main node and the first one spawned.</span>
+<span class="sd">This script provides the user with a small graphic explaining how to select the movement modes of the robot.</span>
+<span class="sd">It also manages the user input by going to modify, if the command is correct, the ros parameters that allow </span>
+<span class="sd">the activation of the nodes set for each mode.</span>
+
+<span class="sd">``rospy.set_param(&#39;mode&#39;, mode_number)``</span>
+
+<span class="sd">This mechanism is managed with a switch-case that makes use of standard Python dictionaries.</span>
+<span class="sd">The possible commands are the following:</span>
+
+<span class="sd">1. - :mod:`mode1` , Reach autonomousely a user&#39;s desired position</span>
+<span class="sd">2. - :mod:`mode2` , Free drive the robot with the keyboard</span>
+<span class="sd">3. - :mod:`mode3` , Drive the robot with the keyboard with an active collision avoidance</span>
+<span class="sd">4. - STOP the simulation</span>
+
+<span class="sd">When the first modality is called the user will be able to set the desired goal position</span>
+<span class="sd">and to cancel it during the reaching by pressing 0 .</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="c1"># Importing Libraries</span>
+<span class="kn">import</span> <span class="nn">rospy</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">signal</span>
+<span class="kn">import</span> <span class="nn">module</span>
+
+<span class="n">goal_cancel</span> <span class="o">=</span> <span class="kc">False</span> <span class="c1">#Boolean variable to know if the first modality is active or not</span>
+
+<div class="viewcode-block" id="UI"><a class="viewcode-back" href="../../index.html#scripts.User_Interface.UI">[docs]</a><span class="k">def</span> <span class="nf">UI</span><span class="p">():</span>
+
+	<span class="c1">#Function that receives inputs and sets all the ROS parameters</span>
+
+	<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">	This Function receives inputs from the user and manage his request</span>
+<span class="sd">	by choosing the right modality thanks to a switch-case structure that makes use of python dictionaries.</span>
+<span class="sd">	This logic is implemented in the module script.</span>
+<span class="sd">	The user will be also able to cancel the goal request of the modality one by pressing the number 0 on</span>
+<span class="sd">	his keyboard, this is simply managed changing a global bolean variable &quot;goal_cancel&quot;</span>
+<span class="sd">		</span>
+<span class="sd">		* No Arguments</span>
+<span class="sd">		</span>
+<span class="sd">		* No Returns</span>
+
+<span class="sd">	&quot;&quot;&quot;</span>
+
+	<span class="k">global</span> <span class="n">goal_cancel</span>   
+
+	<span class="c1">#Printing the UI interface </span>
+	<span class="nb">print</span><span class="p">(</span><span class="n">module</span><span class="o">.</span><span class="n">UI_msg</span><span class="p">)</span>
+
+	<span class="c1">#Getting the modality desired by the user </span>
+	<span class="n">modality</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="n">module</span><span class="o">.</span><span class="n">bcolors</span><span class="o">.</span><span class="n">YELLOW</span> <span class="o">+</span> <span class="s1">&#39;Choose a modality: </span><span class="se">\n</span><span class="s1">&#39;</span> <span class="o">+</span> <span class="n">module</span><span class="o">.</span><span class="n">bcolors</span><span class="o">.</span><span class="n">END</span><span class="p">))</span> <span class="c1"># Stores the input key</span>
+
+	<span class="c1">#Calling the desired modality, if the user chooses the first modality goal_cancel turns to True</span>
+	<span class="k">if</span> <span class="p">(</span><span class="n">modality</span> <span class="o">==</span> <span class="mi">1</span><span class="p">):</span> 
+		<span class="n">goal_cancel</span> <span class="o">=</span> <span class="n">module</span><span class="o">.</span><span class="n">mode</span><span class="p">(</span><span class="n">modality</span><span class="p">,</span><span class="n">goal_cancel</span><span class="p">)</span>
+	<span class="k">else</span><span class="p">:</span>
+		<span class="n">module</span><span class="o">.</span><span class="n">mode</span><span class="p">(</span><span class="n">modality</span><span class="p">,</span><span class="n">goal_cancel</span><span class="p">)</span>
+
+	<span class="c1">#if the the robot is reaching the goal the user can press [0] and cancell it </span>
+	<span class="k">if</span> <span class="n">goal_cancel</span> <span class="o">==</span> <span class="kc">True</span><span class="p">:</span>
+		<span class="nb">print</span><span class="p">(</span><span class="n">module</span><span class="o">.</span><span class="n">bcolors</span><span class="o">.</span><span class="n">CYAN</span> <span class="o">+</span> <span class="n">module</span><span class="o">.</span><span class="n">bcolors</span><span class="o">.</span><span class="n">BOLD</span> <span class="o">+</span> <span class="s2">&quot;Press [0] to cancel the goal&quot;</span> <span class="o">+</span> <span class="n">module</span><span class="o">.</span><span class="n">bcolors</span><span class="o">.</span><span class="n">END</span><span class="p">)</span>
+		<span class="n">goal_cancel</span> <span class="o">=</span> <span class="kc">False</span></div>
+
+<div class="viewcode-block" id="main"><a class="viewcode-back" href="../../index.html#scripts.User_Interface.main">[docs]</a><span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+	
+	<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">	The main function prints some istruction for the user and start an infinite loop </span>
+<span class="sd">	that keep listening to the user requests.</span>
+<span class="sd">	&quot;&quot;&quot;</span>
+	<span class="c1">#printing the first graphic part of the user interface</span>
+	<span class="nb">print</span><span class="p">(</span><span class="n">module</span><span class="o">.</span><span class="n">intro</span><span class="p">)</span>
+	<span class="c1">#cycling till ros is running</span>
+	<span class="k">while</span> <span class="ow">not</span> <span class="n">rospy</span><span class="o">.</span><span class="n">is_shutdown</span><span class="p">():</span>
+		<span class="c1">#calling the UI function created before in the code</span>
+		<span class="n">UI</span><span class="p">()</span></div>
+
+<span class="c1">#Calling the main function</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">()</span>
+
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Matteo Carlone.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

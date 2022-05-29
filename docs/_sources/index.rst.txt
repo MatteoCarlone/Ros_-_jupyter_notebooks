@@ -1,0 +1,38 @@
+.. Mobile_Discovery_Robot_ROS documentation master file, created by
+   sphinx-quickstart on Sat Feb 26 17:38:16 2022.
+   You can adapt this file completely to your liking, but it should at least
+   contain the root `toctree` directive.
+
+Welcome to Mobile_Discovery_Robot_ROS's documentation!
+======================================================
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Contents:
+
+Indices and tables
+==================
+
+* :ref:`genindex`
+* :ref:`modindex`
+* :ref:`search` 
+
+User Interface Module :mod:`User_Interface`
+===========================================
+.. automodule:: scripts.User_Interface
+   :members:
+
+Mode 1 Module :mod:`mode1`
+==========================
+.. automodule:: scripts.mode_1
+   :members:
+   
+Mode 2 Module :mod:`mode2`
+==========================
+.. automodule:: scripts.mode_2
+   :members:
+
+Mode 3 Module :mod:`mode3`
+==========================
+.. automodule:: scripts.mode_3
+   :members:
