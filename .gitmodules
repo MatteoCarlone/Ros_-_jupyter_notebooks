@@ -1,3 +1,6 @@
 [submodule "PyGame_Robot_Sim"]
 	path = PyGame_Robot_Sim
 	url = https://github.com/MatteoCarlone/PyGame_Robot_Sim
+[submodule "python_simulator"]
+	path = python_simulator
+	url = https://github.com/CarmineD8/python_simulator
