@@ -1,6 +1,6 @@
 # RT_2
 ## Assignment of the research Track 2 course 
-[Here](https://studentrobotics.org) you can find the sphinx documentation
+[Here](https://matteocarlone.github.io/RT_2/) you can find the sphinx documentation
 
 Jupyter Notebook for UI and Data Visualization [Here](https://github.com/MatteoCarlone/RT_2/tree/main/Jupyter_Notebook) 
 
