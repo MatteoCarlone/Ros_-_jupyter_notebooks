@@ -2,7 +2,7 @@
 ## Assignment of the research Track 2 course 
 [Here](https://matteocarlone.github.io/RT_2/) you can find the sphinx documentation
 
-Jupyter Notebook for UI and Data Visualization [Here](https://github.com/MatteoCarlone/RT_2/tree/main/Jupyter_Notebook) 
+Jupyter Notebook for UI and Data Visualization [Here](https://github.com/MatteoCarlone/RT_2/blob/main/Jupyter_Notebook/Final_Assignment_Notebook.ipynb) 
 
 Statistics Analysis Report And Matlab Code [Here](https://github.com/MatteoCarlone/RT_2/tree/main/Statistics) 
 
